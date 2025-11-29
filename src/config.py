@@ -14,10 +14,11 @@ class ChatbotConfig:
     def __init__(self):
         self.api_key = os.environ.get("OPENAI_API_KEY")
         self.api_url = "https://api.openai.com/v1/chat/completions"
-        self.model = os.environ.get("OPENAI_MODEL", "gpt-4")
+        self.model = os.environ.get("OPENAI_MODEL", "gpt-4o-mini")
         self.max_tokens = int(os.environ.get("OPENAI_MAX_TOKENS", "1000"))
         self.temperature = float(os.environ.get("OPENAI_TEMPERATURE", "0.7"))
         self.timeout = 30
+        self.memory_file = "data/user_memory.json"
         
     def validate(self) -> bool:
         """Validate that required configuration is present."""
